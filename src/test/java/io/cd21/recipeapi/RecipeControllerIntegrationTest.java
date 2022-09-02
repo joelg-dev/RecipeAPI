@@ -94,7 +94,7 @@ public class RecipeControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", is("French fries")));;
+                .andExpect(jsonPath("$[0].name", is("French fries")));
     }
 
 
@@ -102,7 +102,7 @@ public class RecipeControllerIntegrationTest {
     public void whenFilterRecipe_includeTags_thenFilteredResult()
             throws Exception {
 
-        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {"Delicious"}));;
+        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {"Delicious"}));
         postRecipe(getTestRecipe("Fancy broccoli", 1, "Make it fancy", new String[] {"Potatoes"}, new String[] {"Vegetarian","Wierd"}));
         postRecipe(getTestRecipe("Green peas", 1, "Just fry them", new String[] {"Potatoes"}, new String[] {"Vegetarian","Delicious"}));
 
@@ -112,7 +112,7 @@ public class RecipeControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", is("Green peas")));;
+                .andExpect(jsonPath("$[0].name", is("Green peas")));
     }
 
 
@@ -120,7 +120,7 @@ public class RecipeControllerIntegrationTest {
     public void whenFilterRecipe_servings_thenFilteredResult()
             throws Exception {
 
-        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {""}));;
+        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {""}));
         postRecipe(getTestRecipe("Broccoli", 1, "Just fry them", new String[] {"Potatoes"}, new String[] {""}));
 
         mvc.perform(get("/api/v1/recipes")
@@ -128,7 +128,7 @@ public class RecipeControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", is("Broccoli")));;
+                .andExpect(jsonPath("$[0].name", is("Broccoli")));
     }
 
 
@@ -136,7 +136,7 @@ public class RecipeControllerIntegrationTest {
     public void whenFilterRecipe_instructions_thenFilteredResult()
             throws Exception {
 
-        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {""}));;
+        postRecipe(getTestRecipe("Meatballs Deluxe", 3, "Just bake them", new String[] {"Beans"}, new String[] {""}));
         postRecipe(getTestRecipe("Broccoli", 1, "Just fry them", new String[] {"Potatoes"}, new String[] {""}));
 
         mvc.perform(get("/api/v1/recipes")
@@ -144,7 +144,7 @@ public class RecipeControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", is("Meatballs Deluxe")));;
+                .andExpect(jsonPath("$[0].name", is("Meatballs Deluxe")));
     }
 
     @Test

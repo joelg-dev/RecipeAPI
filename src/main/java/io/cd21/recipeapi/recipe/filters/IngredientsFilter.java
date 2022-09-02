@@ -10,7 +10,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Path;
+
 @Component
 public class IngredientsFilter extends AbstractFilter implements SpecificationFilter<Recipe> {
 

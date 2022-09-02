@@ -5,13 +5,11 @@ import io.cd21.recipeapi.exception.InvalidRequestException;
 import io.cd21.recipeapi.exception.ResourceNotFoundException;
 import io.cd21.recipeapi.filter.FilterType;
 import io.cd21.recipeapi.filter.SpecificationFilter;
-import io.cd21.recipeapi.ingredient.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Service

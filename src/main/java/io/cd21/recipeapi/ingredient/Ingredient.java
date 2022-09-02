@@ -1,6 +1,5 @@
 package io.cd21.recipeapi.ingredient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.cd21.recipeapi.entity.AbstractEntity;
 import io.cd21.recipeapi.recipe.Recipe;
 import io.swagger.v3.oas.annotations.media.Schema;

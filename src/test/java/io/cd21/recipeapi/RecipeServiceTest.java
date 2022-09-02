@@ -28,8 +28,8 @@ public class RecipeServiceTest {
 
     private RecipeService service;
 
-    private RecipeRepository repository = Mockito.mock(RecipeRepository.class);
-    private List<SpecificationFilter<Recipe>> availableFilters = Mockito.mock(List.class);
+    private final RecipeRepository repository = Mockito.mock(RecipeRepository.class);
+    private final List<SpecificationFilter<Recipe>> availableFilters = Mockito.mock(List.class);
 
 
     @BeforeEach

@@ -4,10 +4,8 @@ import io.cd21.recipeapi.exception.InvalidParameterException;
 import io.cd21.recipeapi.exception.InvalidRequestException;
 import io.cd21.recipeapi.exception.ResourceNotFoundException;
 import io.cd21.recipeapi.filter.FilterType;
-import io.cd21.recipeapi.tag.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,17 +25,17 @@ public class RecipeController {
     }
 
     @Parameter(in = ParameterIn.QUERY, description = "Amount of servings, for example '3'"
-            , name = "servings", schema = @Schema(type = "integer", defaultValue = ""))
+            , name = "servings", schema = @Schema(type = "integer"))
     @Parameter(in = ParameterIn.QUERY, description = "Any part of the instructions, for example 'oven'"
             , name = "instructions", schema = @Schema(type = "string"))
     @Parameter(in = ParameterIn.QUERY, description = "Tags (comma seperated) to include, for example 'Vegetarian'"
-            , name = "tags", schema = @Schema(type = "string", defaultValue = ""))
+            , name = "tags", schema = @Schema(type = "string"))
     @Parameter(in = ParameterIn.QUERY, description = "Tags (comma seperated) to exclude, for example 'Vegetarian'"
-            , name = "tags-exclude", schema = @Schema(type = "string", defaultValue = ""))
+            , name = "tags-exclude", schema = @Schema(type = "string"))
     @Parameter(in = ParameterIn.QUERY, description = "Ingredients (comma seperated) to include, for example 'Potatoes'"
-            , name = "ingredients", schema = @Schema(type = "string", defaultValue = ""))
+            , name = "ingredients", schema = @Schema(type = "string"))
     @Parameter(in = ParameterIn.QUERY, description = "Ingredients (comma seperated) to exclude, for example 'Potatoes'"
-            , name = "ingredients-exclude", schema = @Schema(type = "string", defaultValue = ""))
+            , name = "ingredients-exclude", schema = @Schema(type = "string"))
     @Parameter(name = "params", hidden = true)
     @GetMapping
     public List<Recipe> getRecipes(@RequestParam Map<String,String> params) {
