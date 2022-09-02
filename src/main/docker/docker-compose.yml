@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  app:
+    image: 'recipeapi:latest'
+    build:
+      context: .
+    ports:
+      - 5005:5005
+      - 8081:8081
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/recipeapi-db
+      - SPRING_DATASOURCE_USERNAME=recipeapi-db
+      - SPRING_DATASOURCE_PASSWORD=recipe123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:14.5-alpine'
+    # expose ports to connect dbeaver or similar
+    ports:
+      - 5432:5432
+    container_name: db
+    environment:
+      - POSTGRES_USER=recipeapi-db
+      - POSTGRES_PASSWORD=recipe123
